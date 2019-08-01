@@ -1,0 +1,12 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.2</TargetFramework>
+    <RootNamespace>RoundTheCode.LinqExpressions_Example.Expressions</RootNamespace>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\RoundTheCode.LinqExpressions-Example.Data\RoundTheCode.LinqExpressions-Example.Data.csproj" />
+  </ItemGroup>
+
+</Project>

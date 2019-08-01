@@ -1,0 +1,25 @@
+﻿@using RoundTheCode.LinqExpressions_Example.Models
+@model ExpressionResult
+<div class="text-center">
+    <h2>Any Example - Films showing on or after 4/8/2019</h2>
+    <ul>
+        @foreach (var a in Model.AnyExample)
+        {
+            <li>(Id: @a.Id) - @a.Name</li>
+        }
+    </ul>
+    <h2>Include Example - Films starting on 3/8/2019 between 12:30 and 16:30</h2>
+    <ul>
+        @foreach (var a in Model.IncludeExample)
+        {
+            <li>(Id: @a.Id) - @a.Name</li>
+        }
+    </ul>
+    <h2>And Or Example - Horrible Histories: The Movie - Rotten Romans starting times, when on before 3/8/2019 12:00 OR after (or equal) to 4/8/2019 11:00</h2>
+    <ul>
+        @foreach (var a in Model.AndOrExample)
+        {
+            <li>@a.StartTime.ToString(@"d\/M\/yyyy HH:mm")</li>
+        }
+    </ul>
+</div>
