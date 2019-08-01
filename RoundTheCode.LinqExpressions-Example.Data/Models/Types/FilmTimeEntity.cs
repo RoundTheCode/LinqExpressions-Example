@@ -5,6 +5,7 @@ using System.Text;
 
 namespace RoundTheCode.LinqExpressions_Example.Data.Models.Types
 {
+    [Table("FilmTime")]
     public partial class FilmTimeEntity : BaseEntity
     {
         public virtual int FilmId { get; set; }
