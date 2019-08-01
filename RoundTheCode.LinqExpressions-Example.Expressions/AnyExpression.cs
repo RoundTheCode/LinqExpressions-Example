@@ -8,6 +8,14 @@ namespace RoundTheCode.LinqExpressions_Example.Expressions
 {
     public partial class AnyExpression : ExpressionBase<FilmEntity>
     {
+        public override IQueryable<FilmEntity> GetExampleQuery(LinqExpressionsDbContext context)
+        {
+            var expression = GetExpression(context);
+
+            // Store the filter as a dynamic query.
+            return context.FilmEntities.Where(expression);
+        }
+
         protected override Expression<Func<FilmEntity, bool>> GetExpression(LinqExpressionsDbContext context)
         {
             var startTime = DateTimeOffset.Parse("2019-08-04");
@@ -45,13 +53,7 @@ namespace RoundTheCode.LinqExpressions_Example.Expressions
             return Expression.Lambda<Func<FilmEntity, bool>>(anyCall, fParameter);
         }
 
-        public override IQueryable<FilmEntity> GetExampleQuery(LinqExpressionsDbContext context)
-        {
-            var expression = GetExpression(context);
-
-            // Store the filter as a dynamic query.
-            return context.FilmEntities.Where(expression);
-        }
+        
 
     }
 }
