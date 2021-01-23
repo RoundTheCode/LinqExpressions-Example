@@ -10,6 +10,7 @@ using RoundTheCode.LinqExpressions_Example.Models;
 
 namespace RoundTheCode.LinqExpressions_Example.Controllers
 {
+    [Route("")]
     public class HomeController : Controller
     {
         protected readonly LinqExpressionsDbContext _context;
@@ -19,6 +20,7 @@ namespace RoundTheCode.LinqExpressions_Example.Controllers
             _context = context;
         }
 
+        [HttpGet("")]
         public IActionResult Index()
         {
             var anyExample = new AnyExpression().GetExampleQuery(_context);

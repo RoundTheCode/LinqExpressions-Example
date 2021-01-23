@@ -10,6 +10,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Hosting;
 using RoundTheCode.LinqExpressions_Example.Data;
 
 namespace RoundTheCode.LinqExpressions_Example
@@ -33,14 +34,13 @@ namespace RoundTheCode.LinqExpressions_Example
                 options.MinimumSameSitePolicy = SameSiteMode.None;
             });
 
-
-            services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
+            services.AddControllersWithViews();
             services.AddDbContext<LinqExpressionsDbContext>(options => options.UseSqlServer(Configuration.GetConnectionString("LinqExpressionsDbContext")));
 
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IHostingEnvironment env)
+        public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
             if (env.IsDevelopment())
             {
@@ -54,14 +54,13 @@ namespace RoundTheCode.LinqExpressions_Example
             }
 
             app.UseHttpsRedirection();
+            app.UseRouting(); 
             app.UseStaticFiles();
             app.UseCookiePolicy();
 
-            app.UseMvc(routes =>
+            app.UseEndpoints(endpoints =>
             {
-                routes.MapRoute(
-                    name: "default",
-                    template: "{controller=Home}/{action=Index}/{id?}");
+                endpoints.MapControllers(); // Add controllers.
             });
         }
     }
