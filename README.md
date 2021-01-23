@@ -1,1 +1,1 @@
-Full documentation is available at https://www.roundthecode.com/code-examples/dynamic-linq-expressions
+Full documentation is available at https://www.roundthecode.com/code-examples/dynamic-queries-using-linq-expressions
