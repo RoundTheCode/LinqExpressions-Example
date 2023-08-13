@@ -1,1 +1,1 @@
-Full documentation is available at https://www.roundthecode.com/dotnet-samples/dynamic-queries-using-linq-expressions
+Full documentation is available at https://www.roundthecode.com/dotnet-code-examples/dynamic-queries-using-linq-expressions
